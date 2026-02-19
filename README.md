@@ -265,7 +265,7 @@ If you want, we can also add:
     * RBAC vs Entra roles difference
     * OAuth2 grant types breakdown
     * Attack surface comparison diagram
-=======
+
 
 # 📊 Comparison Table
 
