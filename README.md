@@ -23,8 +23,6 @@ This repository explains and compares the most common authentication models used
 
 ![OIDC Login Workflow](https://github.com/donaldcarol/azure-authentication-patterns/actions/workflows/azure-login-oidc.yml/badge.svg)
 
-Comparative analysis and runnable examples of authentication mechanisms used in Azure workloads and CI/CD pipelines.
-
 ---
 
 ## 🎯 Purpose
