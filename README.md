@@ -45,15 +45,16 @@ The goal is to clarify:
 
 ```mermaid
 flowchart LR
-    A[Azure VM<br/>System Assigned MI]
-    B[IMDS<br/>169.254.169.254]
-    C[Microsoft Entra ID]
-    D[Azure Resource Manager]
+    A["Azure VM - System Assigned MI"]
+    B["IMDS (169.254.169.254)"]
+    C["Microsoft Entra ID"]
+    D["Azure Resource Manager"]
 
     A -->|Request Token| B
     B -->|OAuth2| C
     C -->|Access Token| A
     A -->|Bearer Token| D
+
 ````
 
 ---
