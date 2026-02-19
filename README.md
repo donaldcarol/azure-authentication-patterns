@@ -89,7 +89,7 @@ flowchart LR
     C["Microsoft Entra ID"]
     D["Azure Resource Manager"]
 
-    A -->|Request Token (client_id optional)| B
+    A -->|Request Token -client_id optional| B
     B -->|OAuth2| C
     C -->|Access Token| A
     A -->|Bearer Token| D
