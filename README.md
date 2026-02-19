@@ -184,21 +184,25 @@ flowchart LR
 
 
 🔎 Token Acquisition Method
-Model	Token Source
+
+Model			Token 	Source
 Managed Identity	IMDS endpoint
 Service Principal	Azure AD OAuth2
 OIDC	Federated token exchange
 
 🛡 Security Considerations
+
 Managed Identity
 
     * Best for Azure-hosted workloads
     * Eliminates secret exposure
     * Minimal attack surface
+
 Service Principal + Secret
     * Secret leakage risk
     * Requires rotation policy
     * Avoid when OIDC available
+
 OIDC Federation
     * No static credentials
     * Strong identity binding
@@ -207,11 +211,13 @@ OIDC Federation
 
 
 🎯 Best Practice Recommendations
-Scenario	Recommended Model
-Azure VM automation	Managed Identity
+
+Scenario				Recommended Model
+Azure VM automation			Managed Identity
 Shared identity across services	User-Assigned MI
-GitHub → Azure deployment	OIDC Federation
-Legacy system	Service Principal + Certificate
+GitHub → Azure deployment		OIDC Federation
+Legacy system				Service Principal + Certificate
+
 ## ✅ Decision tree: Which Azure authentication model should I choose?
 
 ```mermaid
