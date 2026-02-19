@@ -222,6 +222,15 @@ flowchart LR
 
 ---
 
+## 🔐 GitHub Secrets Required
+
+| Model | Secrets Required |
+|-------|------------------|
+| Managed Identity | None |
+| Service Principal + Secret | AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_CLIENT_SECRET |
+| OIDC Federation | AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_SUBSCRIPTION_ID |
+
+
 ## ✅ Decision Tree: Which model should I choose?
 
 ```mermaid
