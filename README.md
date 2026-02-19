@@ -35,11 +35,11 @@ This repository provides:
 
 📌 Overview
 This repository demonstrates and explains the most common authentication models used in Azure:
-    • System-Assigned Managed Identity (SAMI)
-    • User-Assigned Managed Identity (UAMI)
-    • Service Principal with Client Secret
-    • Service Principal with Certificate
-    • Service Principal with OIDC Federation (GitHub Actions)
+    * System-Assigned Managed Identity (SAMI)
+    * User-Assigned Managed Identity (UAMI)
+    * Service Principal with Client Secret
+    * Service Principal with Certificate
+    * Service Principal with OIDC Federation (GitHub Actions)
 
 The goal is to clarify:
 
@@ -191,18 +191,19 @@ OIDC	Federated token exchange
 
 🛡 Security Considerations
 Managed Identity
-    • Best for Azure-hosted workloads
-    • Eliminates secret exposure
-    • Minimal attack surface
+
+    * Best for Azure-hosted workloads
+    * Eliminates secret exposure
+    * Minimal attack surface
 Service Principal + Secret
-    • Secret leakage risk
-    • Requires rotation policy
-    • Avoid when OIDC available
+    * Secret leakage risk
+    * Requires rotation policy
+    * Avoid when OIDC available
 OIDC Federation
-    • No static credentials
-    • Strong identity binding
-    • Short-lived tokens
-    • Modern best practice
+    * No static credentials
+    * Strong identity binding
+    * Short-lived tokens
+    * Modern best practice
 
 
 🎯 Best Practice Recommendations
@@ -241,10 +242,10 @@ flowchart TD
 
 📚 Practical Examples
 This repository may include:
-    • VM script using Managed Identity
-    • GitHub workflow using OIDC
-    • Example of SP with client secret
-    • RBAC assignment examples
+    * VM script using Managed Identity
+    * GitHub workflow using OIDC
+    * Example of SP with client secret
+    * RBAC assignment examples
 See `examples/README.md` for runnable demos.
 
 🧠 Key Insight
@@ -257,14 +258,15 @@ OIDC is also based on a Service Principal — but uses token federation instead 
 Designed as a practical identity architecture lab for Azure automation scenarios.
 
 
-🔥 Next Level Upgrade (Optional)
+##🔥 Next Level Upgrade (Optional)
 If you want, we can also add:
-    • Token lifetime comparison
-    • ARM vs Microsoft Graph audience explanation
-    • RBAC vs Entra roles difference
-    • OAuth2 grant types breakdown
-    • Attack surface comparison diagram
+    * Token lifetime comparison
+    * ARM vs Microsoft Graph audience explanation
+    * RBAC vs Entra roles difference
+    * OAuth2 grant types breakdown
+    * Attack surface comparison diagram
 =======
+
 # 📊 Comparison Table
 
 | Feature                      | SAMI | UAMI | SP + Secret | SP + OIDC |
