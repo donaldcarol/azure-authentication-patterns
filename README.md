@@ -144,8 +144,7 @@ Short-lived tokens
 
 Recommended modern pattern
 
-Authentication Flow
-flowchart LR
+Authentication flowchart LR
     A[GitHub Actions Runner]
     B[OIDC Token from GitHub]
     C[Microsoft Entra ID<br/>Federated Credential]
@@ -158,18 +157,23 @@ flowchart LR
     D --> E
 
 📊 Comparison Table
-Feature	SAMI	UAMI	SP + Secret	SP + OIDC
-Runs inside Azure only	✔	✔	❌	❌
-Requires secret	❌	❌	✔	❌
-Credential rotation	❌	❌	✔	❌
-Reusable across resources	❌	✔	✔	✔
-Recommended for CI/CD	❌	❌	⚠️ Legacy	✔
-Security level	High	High	Medium	Very High
+
+
+Feature	                    SAMI	        UAMI	SP + Secret	    SP + OIDC
+Runs inside Azure only        ✔	             ✔	       ❌            	❌
+Requires secret            	❌	            ❌	        ✔	            ❌
+Credential rotation        	❌	            ❌	        ✔	            ❌
+Reusable across resources	❌             	✔	        ✔            	✔
+Recommended for CI/CD    	❌	            ❌    	⚠️ Legacy	        ✔
+Security level	            High        	High    	Medium    	Very High
+
+
 🔎 Token Acquisition Method
-Model	Token Source
-Managed Identity	IMDS endpoint
-Service Principal	Azure AD OAuth2
-OIDC	Federated token exchange
+Model	                Token Source
+Managed Identity    	IMDS endpoint
+Service Principal    	Azure AD OAuth2
+OIDC	                Federated token exchange
+
 🛡 Security Considerations
 Managed Identity
 
@@ -198,11 +202,13 @@ Short-lived tokens
 Modern best practice
 
 🎯 Best Practice Recommendations
-Scenario	Recommended Model
-Azure VM automation	Managed Identity
-Shared identity across services	User-Assigned MI
-GitHub → Azure deployment	OIDC Federation
-Legacy system	Service Principal + Certificate
+Scenario                        	Recommended Model
+Azure VM automation	                Managed Identity
+Shared identity across services    	User-Assigned MI
+GitHub → Azure deployment	        OIDC Federation
+Legacy system	                    Service Principal + Certificate
+
+
 📚 Practical Examples
 
 This repository may include:
