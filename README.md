@@ -1,11 +1,3 @@
-Perfect 👌
-Mai jos ai **README curățat complet**, fără duplicate, fără secțiuni repetate, fără blocuri mermaid greșite, fără liste indentate aiurea.
-
-👉 Șterge TOT din README.md și pune exact conținutul de mai jos.
-
----
-
-````markdown
 # 🔐 Azure Authentication Patterns
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/donaldcarol/azure-authentication-patterns)
