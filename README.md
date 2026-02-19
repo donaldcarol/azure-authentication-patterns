@@ -184,7 +184,7 @@ flowchart LR
 
 ---
 
-<<<<<<< HEAD
+
 🔎 Token Acquisition Method
 Model	Token Source
 Managed Identity	IMDS endpoint
@@ -268,7 +268,6 @@ If you want, we can also add:
     • Attack surface comparison diagram
 =======
 # 📊 Comparison Table
->>>>>>> 470f577b6223e10078a638b164ca0c282a99fd82
 
 | Feature                      | SAMI | UAMI | SP + Secret | SP + OIDC |
 | ---------------------------- | ---- | ---- | ----------- | --------- |
