@@ -1,4 +1,4 @@
-# 🔐 Azure Authentication Patterns
+# 🔐 🔐 Azure Authentication Patterns – Managed Identity vs Service Principal vs OIDC
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/donaldcarol/azure-authentication-patterns)
 ![GitHub repo size](https://img.shields.io/github/repo-size/donaldcarol/azure-authentication-patterns)
@@ -8,7 +8,7 @@
 ![Security](https://img.shields.io/badge/Security-OIDC%20Enabled-brightgreen)
 ![IaC Ready](https://img.shields.io/badge/IaC-Ready-informational)
 
-Comparative analysis and runnable examples of authentication mechanisms used in Azure workloads and CI/CD pipelines.
+Comparative analysis and practical implementations of authentication models used in Azure workloads and modern CI/CD pipelines.
 
 ---
 
@@ -20,6 +20,8 @@ This repository explains and compares the most common authentication models used
 - User-Assigned Managed Identity (UAMI)
 - Service Principal with Client Secret
 - Service Principal with OIDC Federation (GitHub Actions)
+
+> 🏗 Focus: Identity architecture patterns, token flows, RBAC boundaries, and CI/CD security models.
 
 ---
 
