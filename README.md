@@ -194,14 +194,14 @@ OIDC	Federated token exchange
 
 Managed Identity
 
-    * Best for Azure-hosted workloads
-    * Eliminates secret exposure
-    * Minimal attack surface
+    - Best for Azure-hosted workloads
+    - Eliminates secret exposure
+    - Minimal attack surface
 
 Service Principal + Secret
-    * Secret leakage risk
-    * Requires rotation policy
-    * Avoid when OIDC available
+    - Secret leakage risk
+    - Requires rotation policy
+    - Avoid when OIDC available
 
 OIDC Federation
     * No static credentials
