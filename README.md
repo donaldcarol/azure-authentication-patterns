@@ -1,7 +1,24 @@
 
-🔐 Azure Authentication Patterns
-Comparative analysis of authentication mechanisms used in Azure workloads and CI/CD pipelines.
+# 🔐 Azure Authentication Patterns
+![GitHub last commit](https://img.shields.io/github/last-commit/donaldcarol/azure-authentication-patterns)
+![GitHub repo size](https://img.shields.io/github/repo-size/donaldcarol/azure-authentication-patterns)
+![License](https://img.shields.io/github/license/donaldcarol/azure-authentication-patterns)
 
+
+
+![OIDC Login Workflow](https://github.com/donaldcarol/azure-authentication-patterns/actions/workflows/azure-login-oidc.yml/badge.svg)
+
+Comparative analysis and runnable examples of authentication mechanisms used in Azure workloads and CI/CD pipelines.
+
+---
+
+## 🎯 Purpose
+
+This repository provides:
+- Clear architectural comparison
+- Minimal runnable examples
+- Security-focused guidance
+- Practical CI/CD integration patterns
 
 📌 Overview
 This repository demonstrates and explains the most common authentication models used in Azure:
@@ -147,6 +164,29 @@ Azure VM automation	Managed Identity
 Shared identity across services	User-Assigned MI
 GitHub → Azure deployment	OIDC Federation
 Legacy system	Service Principal + Certificate
+## ✅ Decision tree: Which Azure authentication model should I choose?
+
+```mermaid
+flowchart TD
+    A["Where does the code run?"] --> B["Inside Azure (VM / App Service / Functions / AKS)?"]
+    A --> C["Outside Azure (GitHub Actions / on-prem / laptop / other CI)?"]
+
+    B --> D["Do you need the identity to be reusable across multiple resources?"]
+    D -->|No| E["Use System-Assigned Managed Identity (SAMI)"]
+    D -->|Yes| F["Use User-Assigned Managed Identity (UAMI)"]
+
+    C --> G["Does your CI/CD platform support OIDC federation with Azure AD (Entra)?"]
+    G -->|Yes| H["Use Service Principal + OIDC Federation (recommended)"]
+    G -->|No| I["Can you use certificates instead of secrets?"]
+    I -->|Yes| J["Use Service Principal + Certificate"]
+    I -->|No| K["Use Service Principal + Client Secret (legacy)"]
+
+    E --> L["Assign RBAC at required scope (RG / subscription / resource)"]
+    F --> L
+    H --> L
+    J --> L
+    K --> L
+
 
 
 📚 Practical Examples
@@ -155,6 +195,7 @@ This repository may include:
     • GitHub workflow using OIDC
     • Example of SP with client secret
     • RBAC assignment examples
+See `examples/README.md` for runnable demos.
 
 🧠 Key Insight
 Managed Identity is technically a Service Principal.

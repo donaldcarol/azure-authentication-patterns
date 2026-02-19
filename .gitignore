@@ -1,0 +1,27 @@
+# PowerShell
+*.ps1.xml
+*.psd1.xml
+*.psm1.xml
+*.pssc.xml
+
+# Azure CLI
+.azure/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Secrets
+.env
+*.env
+secrets.json
+
+# Temporary
+*.tmp
+*.bak
