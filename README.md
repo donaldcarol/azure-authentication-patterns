@@ -236,6 +236,9 @@ flowchart TD
     J --> L
     K --> L
 
+```
+
+---
 
 
 📚 Practical Examples
