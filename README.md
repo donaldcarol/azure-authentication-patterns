@@ -258,7 +258,8 @@ OIDC is also based on a Service Principal — but uses token federation instead 
 Designed as a practical identity architecture lab for Azure automation scenarios.
 
 
-##🔥 Next Level Upgrade (Optional)
+🔥 Next Level Upgrade (Optional)
+
 If you want, we can also add:
     * Token lifetime comparison
     * ARM vs Microsoft Graph audience explanation
