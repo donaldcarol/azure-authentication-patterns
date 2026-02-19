@@ -260,7 +260,5 @@ OIDC Federation is also based on a Service Principal — but replaces static cre
 
 This project serves as a practical identity architecture lab for Azure automation and CI/CD scenarios.
 
-````
 
----
 
