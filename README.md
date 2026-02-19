@@ -1,12 +1,19 @@
+Perfect 👌
+Mai jos ai **README curățat complet**, fără duplicate, fără secțiuni repetate, fără blocuri mermaid greșite, fără liste indentate aiurea.
 
+👉 Șterge TOT din README.md și pune exact conținutul de mai jos.
+
+---
+
+````markdown
 # 🔐 Azure Authentication Patterns
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/donaldcarol/azure-authentication-patterns)
 ![GitHub repo size](https://img.shields.io/github/repo-size/donaldcarol/azure-authentication-patterns)
 ![License](https://img.shields.io/github/license/donaldcarol/azure-authentication-patterns)
+![OIDC Login Workflow](https://github.com/donaldcarol/azure-authentication-patterns/actions/workflows/azure-login-oidc.yml/badge.svg)
 
-
-Comparative analysis of authentication mechanisms used in Azure workloads and CI/CD pipelines.
+Comparative analysis and runnable examples of authentication mechanisms used in Azure workloads and CI/CD pipelines.
 
 ---
 
@@ -19,35 +26,16 @@ This repository explains and compares the most common authentication models used
 - Service Principal with Client Secret
 - Service Principal with OIDC Federation (GitHub Actions)
 
-
-
-![OIDC Login Workflow](https://github.com/donaldcarol/azure-authentication-patterns/actions/workflows/azure-login-oidc.yml/badge.svg)
-
 ---
 
 ## 🎯 Purpose
 
 This repository provides:
+
 - Clear architectural comparison
 - Minimal runnable examples
 - Security-focused guidance
 - Practical CI/CD integration patterns
-
-📌 Overview
-This repository demonstrates and explains the most common authentication models used in Azure:
-    * System-Assigned Managed Identity (SAMI)
-    * User-Assigned Managed Identity (UAMI)
-    * Service Principal with Client Secret
-    * Service Principal with Certificate
-    * Service Principal with OIDC Federation (GitHub Actions)
-
-The goal is to clarify:
-
-- When each model should be used
-- How authentication flows work
-- Security implications
-- Token acquisition mechanisms
-- RBAC integration patterns
 
 ---
 
@@ -81,7 +69,6 @@ flowchart LR
     B -->|OAuth2| C
     C -->|Access Token| A
     A -->|Bearer Token| D
-
 ````
 
 ---
@@ -105,12 +92,12 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[Azure VM<br/>User Assigned MI]
-    B[IMDS]
-    C[Microsoft Entra ID]
-    D[Azure Resource Manager]
+    A["Azure VM - User Assigned MI"]
+    B["IMDS"]
+    C["Microsoft Entra ID"]
+    D["Azure Resource Manager"]
 
-    A -->|Request Token<br/>client_id optional| B
+    A -->|Request Token (client_id optional)| B
     B -->|OAuth2| C
     C -->|Access Token| A
     A -->|Bearer Token| D
@@ -136,10 +123,9 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[Application / CI Pipeline]
-    B[Client ID + Client Secret]
-    C[Microsoft Entra ID]
-    D[Azure Resource Manager]
+    A["Application / CI Pipeline"]
+    C["Microsoft Entra ID"]
+    D["Azure Resource Manager"]
 
     A -->|Client Credentials Flow| C
     C -->|Access Token| A
@@ -168,11 +154,11 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A[GitHub Actions Runner]
-    B[OIDC Token from GitHub]
-    C[Microsoft Entra ID<br/>Federated Credential]
-    D[Azure Access Token]
-    E[Azure Resource Manager]
+    A["GitHub Actions Runner"]
+    B["OIDC Token from GitHub"]
+    C["Microsoft Entra ID - Federated Credential"]
+    D["Azure Access Token"]
+    E["Azure Resource Manager"]
 
     A -->|Request OIDC Token| B
     B -->|Token Exchange| C
@@ -182,108 +168,16 @@ flowchart LR
 
 ---
 
-
-🔎 Token Acquisition Method
-
-Model			Token 	Source
-Managed Identity	IMDS endpoint
-Service Principal	Azure AD OAuth2
-OIDC	Federated token exchange
-
-🛡 Security Considerations
-
-Managed Identity
-
-    - Best for Azure-hosted workloads
-    - Eliminates secret exposure
-    - Minimal attack surface
-
-Service Principal + Secret
-    - Secret leakage risk
-    - Requires rotation policy
-    - Avoid when OIDC available
-
-OIDC Federation
-    * No static credentials
-    * Strong identity binding
-    * Short-lived tokens
-    * Modern best practice
-
-
-🎯 Best Practice Recommendations
-
-Scenario				Recommended Model
-Azure VM automation			Managed Identity
-Shared identity across services	User-Assigned MI
-GitHub → Azure deployment		OIDC Federation
-Legacy system				Service Principal + Certificate
-
-## ✅ Decision tree: Which Azure authentication model should I choose?
-
-```mermaid
-flowchart TD
-    A["Where does the code run?"] --> B["Inside Azure (VM / App Service / Functions / AKS)?"]
-    A --> C["Outside Azure (GitHub Actions / on-prem / laptop / other CI)?"]
-
-    B --> D["Do you need the identity to be reusable across multiple resources?"]
-    D -->|No| E["Use System-Assigned Managed Identity (SAMI)"]
-    D -->|Yes| F["Use User-Assigned Managed Identity (UAMI)"]
-
-    C --> G["Does your CI/CD platform support OIDC federation with Azure AD (Entra)?"]
-    G -->|Yes| H["Use Service Principal + OIDC Federation (recommended)"]
-    G -->|No| I["Can you use certificates instead of secrets?"]
-    I -->|Yes| J["Use Service Principal + Certificate"]
-    I -->|No| K["Use Service Principal + Client Secret (legacy)"]
-
-    E --> L["Assign RBAC at required scope (RG / subscription / resource)"]
-    F --> L
-    H --> L
-    J --> L
-    K --> L
-
-```
-
----
-
-
-📚 Practical Examples
-This repository may include:
-    * VM script using Managed Identity
-    * GitHub workflow using OIDC
-    * Example of SP with client secret
-    * RBAC assignment examples
-See `examples/README.md` for runnable demos.
-
-🧠 Key Insight
-Managed Identity is technically a Service Principal.
-The difference is lifecycle and credential management are handled automatically by Azure.
-OIDC is also based on a Service Principal — but uses token federation instead of static credentials.
-
-
-👤 Author
-Designed as a practical identity architecture lab for Azure automation scenarios.
-
-
-🔥 Next Level Upgrade (Optional)
-
-If you want, we can also add:
-    * Token lifetime comparison
-    * ARM vs Microsoft Graph audience explanation
-    * RBAC vs Entra roles difference
-    * OAuth2 grant types breakdown
-    * Attack surface comparison diagram
-
-
 # 📊 Comparison Table
 
-| Feature                      | SAMI | UAMI | SP + Secret | SP + OIDC |
-| ---------------------------- | ---- | ---- | ----------- | --------- |
-| Runs inside Azure only       | ✔    | ✔    | ❌           | ❌         |
-| Requires secret              | ❌    | ❌    | ✔           | ❌         |
-| Credential rotation required | ❌    | ❌    | ✔           | ❌         |
-| Reusable across resources    | ❌    | ✔    | ✔           | ✔         |
-| Recommended for CI/CD        | ❌    | ❌    | ⚠️ Legacy   | ✔         |
-| Security level               | High | High | Medium      | Very High |
+| Feature                    | SAMI | UAMI | SP + Secret | SP + OIDC |
+| -------------------------- | ---- | ---- | ----------- | --------- |
+| Runs inside Azure only     | ✔    | ✔    | ❌           | ❌         |
+| Requires secret            | ❌    | ❌    | ✔           | ❌         |
+| Credential rotation needed | ❌    | ❌    | ✔           | ❌         |
+| Reusable across resources  | ❌    | ✔    | ✔           | ✔         |
+| Recommended for CI/CD      | ❌    | ❌    | ⚠️ Legacy   | ✔         |
+| Security level             | High | High | Medium      | Very High |
 
 ---
 
@@ -331,6 +225,37 @@ If you want, we can also add:
 
 ---
 
+## ✅ Decision Tree: Which model should I choose?
+
+```mermaid
+flowchart TD
+    A["Where does the code run?"] --> B["Inside Azure?"]
+    A --> C["Outside Azure?"]
+
+    B --> D["Need shared identity across resources?"]
+    D -->|No| E["System-Assigned MI"]
+    D -->|Yes| F["User-Assigned MI"]
+
+    C --> G["Does CI/CD support OIDC?"]
+    G -->|Yes| H["Service Principal + OIDC"]
+    G -->|No| I["Service Principal (Secret or Certificate)"]
+```
+
+---
+
+# 📚 Practical Examples
+
+This repository includes runnable examples in the `examples/` folder:
+
+* VM script using Managed Identity
+* VM script using User-Assigned Managed Identity
+* Service Principal login with client secret
+* GitHub Actions workflow using OIDC
+
+See `examples/README.md` for details.
+
+---
+
 # 🧠 Key Insight
 
 Managed Identity is technically a Service Principal managed automatically by Azure.
@@ -339,8 +264,11 @@ OIDC Federation is also based on a Service Principal — but replaces static cre
 
 ---
 
-# 👤 Purpose of This Repository
+# 👤 About This Repository
 
-This project serves as an identity architecture lab for Azure automation scenarios and CI/CD pipelines.
+This project serves as a practical identity architecture lab for Azure automation and CI/CD scenarios.
 
+````
+
+---
 
