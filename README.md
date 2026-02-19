@@ -1,4 +1,4 @@
-# 🔐 🔐 Azure Authentication Patterns – Managed Identity vs Service Principal vs OIDC
+# 🔐 Azure Authentication Patterns – Managed Identity vs Service Principal vs OIDC
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/donaldcarol/azure-authentication-patterns)
 ![GitHub repo size](https://img.shields.io/github/repo-size/donaldcarol/azure-authentication-patterns)
