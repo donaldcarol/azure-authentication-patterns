@@ -2,8 +2,11 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/donaldcarol/azure-authentication-patterns)
 ![GitHub repo size](https://img.shields.io/github/repo-size/donaldcarol/azure-authentication-patterns)
-![License](https://img.shields.io/github/license/donaldcarol/azure-authentication-patterns)
-![OIDC Login Workflow](https://github.com/donaldcarol/azure-authentication-patterns/actions/workflows/azure-login-oidc.yml/badge.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Azure](https://img.shields.io/badge/Azure-Identity-blue)
+![CI](https://img.shields.io/badge/CI-GitHub%20Actions-success)
+![Security](https://img.shields.io/badge/Security-OIDC%20Enabled-brightgreen)
+![IaC Ready](https://img.shields.io/badge/IaC-Ready-informational)
 
 Comparative analysis and runnable examples of authentication mechanisms used in Azure workloads and CI/CD pipelines.
 
